@@ -11,7 +11,6 @@ namespace TurtleGame.Player
     {
         public override PlayerState DefaultState => new IdleState();
 
-
         public void Update()
         {
             CurrentState.Update();
@@ -32,6 +31,7 @@ namespace TurtleGame.Player
             player.cameraMover.Update();
             player.horizontalMover.Update();
             player.physicsMover.Update();
+            player.playerAnimation.Update();
         }
 
         public virtual void OnJumpPressed() { }

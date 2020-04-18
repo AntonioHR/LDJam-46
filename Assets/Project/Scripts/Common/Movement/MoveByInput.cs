@@ -28,6 +28,8 @@ public class MoveByInput
     public Vector3 yAxis => settings.yAxis;
     public float moveSpeed => settings.moveSpeed;
 
+    public float DeltaMovement { get { return input.magnitude; } }
+
     public MoveByInput(Settings settings, CharacterController target, UnityEngine.InputSystem.InputAction moveInput)
     {
         this.settings = settings;
