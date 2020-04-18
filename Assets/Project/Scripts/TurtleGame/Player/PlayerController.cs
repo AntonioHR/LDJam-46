@@ -50,6 +50,8 @@ namespace TurtleGame.Player
         private TPSShootSpot shooter;
         private bool wasGrounded;
 
+        public bool IsGrounded { get => charController.isGrounded; }
+
 
         #region Initialization
         private void Start()

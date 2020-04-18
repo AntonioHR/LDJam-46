@@ -2,15 +2,10 @@
 
 namespace TurtleGame.Player
 {
-    public class JumpState : PlayerState
+    public class AirborneState : PlayerState
     {
-        private Vector3 move;
-
         protected override void Begin()
         {
-            move = player.horizontalMover.CurrentMove;
-
-            player.physicsMover.DoDefaultJump();
         }
 
         public override void Update()

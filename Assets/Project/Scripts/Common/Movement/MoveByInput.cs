@@ -19,6 +19,7 @@ public class MoveByInput
 
     private CharacterController target;
     private InputAction moveInput;
+    private Vector2 input;
 
 
     //helpers
@@ -48,7 +49,7 @@ public class MoveByInput
     {
         get
         {
-            Vector2 input = moveInput.ReadValue<Vector2>();
+            input = moveInput.ReadValue<Vector2>();
 
             Vector3 move = input.x * transform.TransformDirection(xAxis)
                     + input.y * transform.TransformDirection(yAxis);
