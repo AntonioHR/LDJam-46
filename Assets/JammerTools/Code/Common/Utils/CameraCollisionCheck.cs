@@ -25,18 +25,21 @@ namespace JammerTools.Common
         private void Update()
         {
             Ray ray = new Ray(transform.position, ToTarget);
+
+            float dist = targetPosLocal.magnitude;
+
             if (Physics.Raycast(ray, out RaycastHit hitInfo, cameraDistance))
             {
                 Vector3 toCam = camTransform.TransformVector(hitInfo.point - transform.position);
 
-                float dist = toCam.magnitude;
-                if(dist > 0)
+                float toCamDist = toCam.magnitude;
+                if(toCamDist > 0)
                 {
-                    dist = Mathf.Min(targetPosLocal.magnitude, dist);
+                    dist = Mathf.Min(targetPosLocal.magnitude, toCamDist);
 
-                    camTransform.localPosition = targetPosLocal.normalized * dist;
                 }
             }
+            camTransform.localPosition = targetPosLocal.normalized * dist;
         }
     }
 }
