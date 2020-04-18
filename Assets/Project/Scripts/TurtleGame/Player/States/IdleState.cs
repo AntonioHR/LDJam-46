@@ -5,7 +5,8 @@
 
         public override void OnJumpPressed()
         {
-            player.physicsMover.DoDefaultJump();
+
+            ExitTo(new JumpState());
         }
     }
 }

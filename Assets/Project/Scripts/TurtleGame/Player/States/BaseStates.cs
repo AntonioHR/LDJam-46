@@ -21,6 +21,31 @@ namespace TurtleGame.Player
         {
             CurrentState.OnJumpPressed();
         }
+
+        public void OnSuperFire()
+        {
+            CurrentState.OnSuperFire();
+        }
+
+        public void OnFireUp()
+        {
+            CurrentState.OnFireUp();
+        }
+
+        public void OnFireDown()
+        {
+            CurrentState.OnFireDown();
+        }
+
+        public void OnBecameGrounded()
+        {
+            CurrentState.OnBecameGrounded();
+        }
+
+        public void OnLeftGround()
+        {
+            CurrentState.OnLeftGround();
+        }
     }
 
     public abstract class PlayerState : State<PlayerController, PlayerState>
@@ -30,10 +55,24 @@ namespace TurtleGame.Player
         public virtual void Update() {
 
             player.cameraMover.Update();
-            player.horizontalMover.Update();
+            player.horizontalMover.UpdateByInput();
             player.physicsMover.Update();
+            player.defaultShooter.Update();
         }
 
         public virtual void OnJumpPressed() { }
+        public virtual void OnFireUp()
+        {
+            player.defaultShooter.EnableAutoFire();
+        }
+        public virtual void OnFireDown()
+        {
+            player.defaultShooter.DisableAutoFire();
+        }
+        public virtual void OnSuperFire() { }
+
+        public virtual void OnBecameGrounded() { }
+        public virtual void OnLeftGround() { }
+
     }
 }

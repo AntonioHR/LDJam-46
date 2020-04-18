@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SuperFire",
+                    "type": "Button",
+                    "id": "7339c5a8-51b9-49b7-ae63-422ee3f588b4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -120,10 +128,21 @@
                     "name": "",
                     "id": "02fea5a1-b6c9-4765-9f9e-8c3d96af07c5",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Tap",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b6b7d8a1-4d2a-4362-ae99-eb1ad10b1937",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SuperFire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

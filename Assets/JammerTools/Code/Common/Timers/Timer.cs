@@ -14,6 +14,7 @@ namespace JammerTools.Common
         bool started = false;
 
         public float ElapsedSeconds { get { return started? Time.time - _startTime : 0; } }
+        public bool IsActive => started;
 
         public void Restart()
         {

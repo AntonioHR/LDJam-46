@@ -49,6 +49,14 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SuperFire"",
+                    ""type"": ""Button"",
+                    ""id"": ""7339c5a8-51b9-49b7-ae63-422ee3f588b4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -133,10 +141,21 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""02fea5a1-b6c9-4765-9f9e-8c3d96af07c5"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6b7d8a1-4d2a-4362-ae99-eb1ad10b1937"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Tap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SuperFire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -151,6 +170,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         m_Ingame_Move = m_Ingame.FindAction("Move", throwIfNotFound: true);
         m_Ingame_Jump = m_Ingame.FindAction("Jump", throwIfNotFound: true);
         m_Ingame_Fire = m_Ingame.FindAction("Fire", throwIfNotFound: true);
+        m_Ingame_SuperFire = m_Ingame.FindAction("SuperFire", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -204,6 +224,7 @@ public class @GameControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Ingame_Move;
     private readonly InputAction m_Ingame_Jump;
     private readonly InputAction m_Ingame_Fire;
+    private readonly InputAction m_Ingame_SuperFire;
     public struct IngameActions
     {
         private @GameControls m_Wrapper;
@@ -212,6 +233,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Ingame_Move;
         public InputAction @Jump => m_Wrapper.m_Ingame_Jump;
         public InputAction @Fire => m_Wrapper.m_Ingame_Fire;
+        public InputAction @SuperFire => m_Wrapper.m_Ingame_SuperFire;
         public InputActionMap Get() { return m_Wrapper.m_Ingame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -233,6 +255,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @Fire.started -= m_Wrapper.m_IngameActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_IngameActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_IngameActionsCallbackInterface.OnFire;
+                @SuperFire.started -= m_Wrapper.m_IngameActionsCallbackInterface.OnSuperFire;
+                @SuperFire.performed -= m_Wrapper.m_IngameActionsCallbackInterface.OnSuperFire;
+                @SuperFire.canceled -= m_Wrapper.m_IngameActionsCallbackInterface.OnSuperFire;
             }
             m_Wrapper.m_IngameActionsCallbackInterface = instance;
             if (instance != null)
@@ -249,6 +274,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @SuperFire.started += instance.OnSuperFire;
+                @SuperFire.performed += instance.OnSuperFire;
+                @SuperFire.canceled += instance.OnSuperFire;
             }
         }
     }
@@ -259,5 +287,6 @@ public class @GameControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnSuperFire(InputAction.CallbackContext context);
     }
 }

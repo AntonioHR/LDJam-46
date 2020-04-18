@@ -7,20 +7,20 @@ using UnityEngine;
 
 namespace JammerTools.Common.Interactables
 {
-    [RequireComponent(typeof(Collider2D))]
-    public abstract class ObjectTrigger<T> : MonoBehaviour
+    [RequireComponent(typeof(Collider))]
+    public abstract class ObjectTrigger3D<T> : MonoBehaviour
     {
         [SerializeField]
-        private bool allowMultipleTriggers = false;
+        private bool allowMultipleTriggers = true;
 
         private bool triggered;
 
         private void Awake()
         {
-            Debug.Assert(gameObject.GetComponentsInChildren<Collider2D>().Any(x=>x.isTrigger));
+            Debug.Assert(gameObject.GetComponentsInChildren<Collider>().Any(x=>x.isTrigger));
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter(Collider other)
         {
             if(!allowMultipleTriggers && triggered)
                 return;
