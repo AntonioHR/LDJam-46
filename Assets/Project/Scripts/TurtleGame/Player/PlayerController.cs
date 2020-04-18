@@ -20,6 +20,9 @@ namespace TurtleGame.Player
         private Transform yCamRotate;
         [SerializeField]
         private Transform camShootRef;
+        [SerializeField]
+        private Animator animator;
+
 
         [Header("Movement")]
         [SerializeField]
@@ -39,6 +42,7 @@ namespace TurtleGame.Player
         public MoveByPhysics physicsMover;
         public TPSCameraMover cameraMover;
         public ShootByRate defaultShooter;
+        public PlayerAnimation playerAnimation;
 
         private CharacterController charController;
         private GameControls gameControls;
@@ -82,6 +86,7 @@ namespace TurtleGame.Player
             horizontalMover = new MoveByInput(walkSettings, charController, gameControls.Ingame.Move);
             physicsMover = new MoveByPhysics(jumpSettings, charController);
             cameraMover = new TPSCameraMover(cameraSettings, xCamRotate, yCamRotate, gameControls.Ingame.Aim);
+            playerAnimation = new PlayerAnimation(horizontalMover, animator);
         }
         #endregion
 
