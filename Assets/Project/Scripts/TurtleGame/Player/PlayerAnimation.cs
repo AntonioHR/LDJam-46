@@ -10,6 +10,7 @@ public class PlayerAnimation {
     private const string Key_AxisY = "AxisY";
     private const string Key_Jumping = "Jumping";
     private const string Key_Falling = "Falling";
+    private const string Key_Shooting = "Shooting";
     private const float Delta_BlendMoveAnimation = 5f;
 
     private MoveByInput movement;
@@ -37,5 +38,9 @@ public class PlayerAnimation {
     public void OnBecameGrounded() {
         animator.SetBool(Key_Jumping, false);
         animator.SetBool(Key_Falling, false);
+    }
+
+    public void ToggleShooting(bool isShooting) {
+        animator.SetBool(Key_Shooting, isShooting);
     }
 }
