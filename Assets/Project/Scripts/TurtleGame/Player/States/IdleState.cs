@@ -9,7 +9,7 @@
         }
         public override void OnJumpPressed()
         {
-
+            player.playerAnimation.OnLeftGround();
             player.physicsMover.DoDefaultJump();
             ExitTo(new AirborneState());
         }

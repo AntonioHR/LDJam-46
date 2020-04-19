@@ -18,6 +18,7 @@ namespace TurtleGame.Player
 
         public override void OnBecameGrounded()
         {
+            player.playerAnimation.OnBecameGrounded();
             ExitTo(new IdleState());
         }
     }

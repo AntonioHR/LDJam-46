@@ -88,7 +88,7 @@ namespace TurtleGame.Player
             horizontalMover = new MoveByInput(walkSettings, charController, gameControls.Ingame.Move);
             physicsMover = new MoveByPhysics(jumpSettings, charController);
             cameraMover = new TPSCameraMover(cameraSettings, xCamRotate, yCamRotate, gameControls.Ingame.Aim);
-            playerAnimation = new PlayerAnimation(horizontalMover, animator);
+            playerAnimation = new PlayerAnimation(horizontalMover, charController, animator);
         }
         #endregion
 
@@ -101,10 +101,11 @@ namespace TurtleGame.Player
 
         private void CheckGround()
         {
-            if (!wasGrounded && charController.isGrounded)
+            if (!wasGrounded && charController.isGrounded) {
                 stateMachine.OnBecameGrounded();
-            else if (wasGrounded && !charController.isGrounded)
+            } else if (wasGrounded && !charController.isGrounded) {
                 stateMachine.OnLeftGround();
+            }
 
             wasGrounded = charController.isGrounded;
         }
