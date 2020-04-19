@@ -11,9 +11,22 @@ namespace TurtleGame.Player
     {
         public override PlayerState DefaultState => new IdleState();
 
+        public string DebugStateName { get
+            {
+                if (CurrentState == null)
+                    return "null";
+                string name = CurrentState.GetType().Name;
+                return name.Substring(0, (name.LastIndexOf('S')));
+            }
+        }
+
         public void Update()
         {
             CurrentState.Update();
+        }
+        public void LateUpdate()
+        {
+            CurrentState.LateUpdate();
         }
 
         public void OnJumpPressed()
@@ -76,5 +89,6 @@ namespace TurtleGame.Player
         public virtual void OnBecameGrounded() { }
         public virtual void OnLeftGround() { }
 
+        public virtual void LateUpdate() { }
     }
 }

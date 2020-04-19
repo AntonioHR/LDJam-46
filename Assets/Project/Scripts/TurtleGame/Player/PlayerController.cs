@@ -1,4 +1,5 @@
 ﻿using JammerTools.BulletSystem;
+using JammerTools.Movement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,23 +41,34 @@ namespace TurtleGame.Player
 
         public MoveByInput horizontalMover;
         public MoveByPhysics physicsMover;
+        public MoveByPlatforms moveByPlatforms;
         public TPSCameraMover cameraMover;
         public ShootByRate defaultShooter;
         public PlayerAnimation playerAnimation;
 
         private CharacterController charController;
         private GameControls gameControls;
+        private PlatformCheckArea platformCheck;
         private PlayerStateMachine stateMachine;
         private TPSShootSpot shooter;
         private bool wasGrounded;
 
-        public bool IsGrounded { get => charController.isGrounded; }
+        public bool IsGrounded { get; private set; }
+        public string DebugStateName {
+            get
+            {
+                if (stateMachine == null)
+                    return "null";
+                return stateMachine.DebugStateName;
+            }
+        }
 
 
         #region Initialization
         private void Start()
         {
             FindComponentDependencies();
+            InitControls();
             InitMovements();
             InitShootBehaviours();
 
@@ -73,6 +85,11 @@ namespace TurtleGame.Player
         {
             charController = GetComponent<CharacterController>();
             shooter = GetComponent<TPSShootSpot>();
+            platformCheck = GetComponentInChildren<PlatformCheckArea>();
+        }
+
+        private void InitControls()
+        {
             gameControls = new GameControls();
 
             gameControls.Ingame.Jump.performed += OnJump;
@@ -82,11 +99,11 @@ namespace TurtleGame.Player
             gameControls.Enable();
         }
 
-
         private void InitMovements()
         {
             horizontalMover = new MoveByInput(walkSettings, charController, gameControls.Ingame.Move);
             physicsMover = new MoveByPhysics(jumpSettings, charController);
+            moveByPlatforms = new MoveByPlatforms(charController, platformCheck);
             cameraMover = new TPSCameraMover(cameraSettings, xCamRotate, yCamRotate, gameControls.Ingame.Aim);
             playerAnimation = new PlayerAnimation(horizontalMover, charController, animator);
         }
@@ -96,18 +113,31 @@ namespace TurtleGame.Player
         public void Update()
         {
             stateMachine.Update();
+        }
+
+        public void LateUpdate()
+        {
+            stateMachine.LateUpdate();
             CheckGround();
         }
 
         private void CheckGround()
         {
-            if (!wasGrounded && charController.isGrounded) {
+            if (!wasGrounded && 
+                (charController.isGrounded
+                //|| platformCheck.ObjectsInArea.Any()
+                ))
+            {
+                IsGrounded = true;
                 stateMachine.OnBecameGrounded();
-            } else if (wasGrounded && !charController.isGrounded) {
+            } else if (wasGrounded &&
+                (!charController.isGrounded && !platformCheck.ObjectsInArea.Any()))
+            {
+                IsGrounded = false;
                 stateMachine.OnLeftGround();
             }
 
-            wasGrounded = charController.isGrounded;
+            wasGrounded = IsGrounded;
         }
 
         private void OnJump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -128,5 +158,6 @@ namespace TurtleGame.Player
         {
             stateMachine.OnFireDown();
         }
+
     }
 }

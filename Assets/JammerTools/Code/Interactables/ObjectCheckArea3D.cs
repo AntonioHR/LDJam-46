@@ -7,13 +7,15 @@ using UnityEngine;
 
 namespace JammerTools.Common.Interactables
 {
-    [RequireComponent(typeof(Collider2D))]
-    public abstract class ObjectCheckArea<T> : MonoBehaviour
+    [RequireComponent(typeof(Collider))]
+    public abstract class ObjectCheckArea3D<T> : MonoBehaviour
     {
         public event Action<T> ObjectEntered;
         public event Action<T> ObjectLeft;
 
-        private Dictionary<T, List<Collider2D>> hits = new Dictionary<T, List<Collider2D>>();
+        public int debugObjectCount;
+
+        private Dictionary<T, List<Collider>> hits = new Dictionary<T, List<Collider>>();
 
         private HashSet<T> objectsInArea = new HashSet<T>();
 
@@ -23,10 +25,10 @@ namespace JammerTools.Common.Interactables
 
         private void Awake()
         {
-            Debug.Assert(gameObject.GetComponentsInChildren<Collider2D>().Any(x=>x.isTrigger));
+            Debug.Assert(gameObject.GetComponentsInChildren<Collider>().Any(x=>x.isTrigger));
         }
 
-        private void OnTriggerEnter2D(Collider2D col)
+        private void OnTriggerEnter(Collider col)
         {
             T target = TryGetTargetFrom(col);
 
@@ -36,12 +38,13 @@ namespace JammerTools.Common.Interactables
                 hits[target].Add(col);
 
                 objectsInArea.Add(target);
+                debugObjectCount = objectsInArea.Count;
                 OnEnter(target);
                 ObjectEntered?.Invoke(target);
             }
         }
 
-        private void OnTriggerExit2D(Collider2D col)
+        private void OnTriggerExit(Collider col)
         {
             T target = TryGetTargetFrom(col);
 
@@ -53,13 +56,14 @@ namespace JammerTools.Common.Interactables
                     hits[target].Remove(col);
                     
                     objectsInArea.Remove(target);
+                    debugObjectCount = objectsInArea.Count;
                     OnLeave(target);
                     ObjectLeft?.Invoke(target);
                 }
             }
         }
 
-        private static T TryGetTargetFrom(Collider2D col)
+        private static T TryGetTargetFrom(Collider col)
         {
             var target = col.GetComponent<T>();
 
@@ -76,7 +80,7 @@ namespace JammerTools.Common.Interactables
         private void CheckHasEntry(T target)
         {
             if (!hits.ContainsKey(target))
-                hits.Add(target, new List<Collider2D>());
+                hits.Add(target, new List<Collider>());
         }
 
         protected virtual void OnEnter(T obj) { }
