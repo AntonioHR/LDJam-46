@@ -15,6 +15,8 @@ namespace JammerTools.Common
         [SerializeField]
         private bool fireOnStart;
         [SerializeField]
+        private float delay = 0;
+        [SerializeField]
         private Target AutoTriggerBy;
 
         private void Start()
@@ -61,7 +63,11 @@ namespace JammerTools.Common
 
         public void Fire()
         {
-            OnTriggered();
+
+            if (delay > 0)
+                Wait.ForSecondsThenDo(delay, OnTriggered);
+            else
+                OnTriggered();
         }
         protected abstract void OnTriggered();
     }

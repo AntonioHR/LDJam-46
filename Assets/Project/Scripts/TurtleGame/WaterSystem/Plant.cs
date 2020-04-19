@@ -73,7 +73,7 @@ namespace TurtleGame.WaterSystem
 
             WaterChanged?.Invoke(this.water);
 
-            if (delta >= settings.maxWater)
+            if (water >= settings.maxWater)
                 OnComplete();
         }
 

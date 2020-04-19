@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8944922808970932917}
   - component: {fileID: 5825869883090854997}
   - component: {fileID: 5832910413165558892}
+  - component: {fileID: 7214353845674930426}
   m_Layer: 9
   m_Name: Plant
   m_TagString: Untagged
@@ -159,3 +160,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7214353845674930426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502030143488361350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fc759f2011f534a99f95b324863bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  afterEnable:
+    m_PersistentCalls:
+      m_Calls: []
+  animationTrigger: Appear
+  fireAllTriggers: 0
