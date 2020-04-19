@@ -22,7 +22,7 @@ namespace JammerTools.Common
         private void Start()
         {
             if (fireOnStart)
-                OnTriggered();
+                Fire();
 
             SubscribeToAutoTrigger();
         }

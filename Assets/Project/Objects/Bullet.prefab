@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9016568118465459910}
   - component: {fileID: 5760303392932684310}
   - component: {fileID: 284873217879290806}
+  - component: {fileID: 7850295877164102403}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowMultipleTriggers: 1
   speed: 15
-  killOnHit: 0
+  killOnHit: 1
   autoKillTimer: 3
 --- !u!114 &284873217879290806
 MonoBehaviour:
@@ -141,3 +142,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wateramount: 14
+--- !u!114 &7850295877164102403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407633255406283823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c198b9d18c9977d47886317b5f935a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4407633255406283823, guid: d599d040e0f0e0648b347681bfecaadd, type: 3}

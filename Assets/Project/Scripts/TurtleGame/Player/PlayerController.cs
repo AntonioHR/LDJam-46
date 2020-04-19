@@ -59,6 +59,8 @@ namespace TurtleGame.Player
         Timer groundTimer = new Timer();
 
         public bool IsGrounded { get; private set; }
+        public float HeatAlpha { get => defaultShooter.HeatAlpha; }
+        public bool IsOnOverheat{ get => defaultShooter.IsOnOverheat; }
         public string DebugStateName {
             get
             {

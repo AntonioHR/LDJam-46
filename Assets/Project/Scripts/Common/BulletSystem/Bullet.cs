@@ -60,7 +60,7 @@ namespace JammerTools.BulletSystem
         private void Kill()
         {
             alive = false;
-            transform.DOScale(Vector3.zero, .25f).OnComplete(Cleanup);
+            transform.DOScale(Vector3.zero, .1f).OnComplete(Cleanup);
         }
 
         private void Cleanup()

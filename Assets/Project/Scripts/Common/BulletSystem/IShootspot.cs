@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TurtleGame.Player
+namespace JammerTools.BulletSystem
 {
     public interface IShootSpot
     {

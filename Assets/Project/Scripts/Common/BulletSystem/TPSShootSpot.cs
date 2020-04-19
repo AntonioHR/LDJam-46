@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace TurtleGame.Player
+namespace JammerTools.BulletSystem
 {
     public class TPSShootSpot : MonoBehaviour, IShootSpot
     {
