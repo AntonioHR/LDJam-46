@@ -13,6 +13,7 @@ namespace TurtleGame.Player
             player.cameraMover.Update();
             player.horizontalMover.UpdateByInput();
             player.physicsMover.Update();
+            player.defaultShooter.Update();
         }
 
         public override void OnBecameGrounded()
