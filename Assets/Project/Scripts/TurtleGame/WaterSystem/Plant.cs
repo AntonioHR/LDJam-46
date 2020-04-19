@@ -79,6 +79,7 @@ namespace TurtleGame.WaterSystem
 
         private void OnComplete()
         {
+            IsFull = true;
             BecameFull?.Invoke();
         }
     }
