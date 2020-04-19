@@ -11,6 +11,8 @@ namespace JammerTools.Common
     {
         [SerializeField]
         private Transform camTransform;
+        [SerializeField]
+        private LayerMask layerMask;
         private Vector3 targetPosLocal;
         private float cameraDistance;
 
@@ -28,7 +30,7 @@ namespace JammerTools.Common
 
             float dist = targetPosLocal.magnitude;
 
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, cameraDistance))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, cameraDistance, layerMask.value))
             {
                 Vector3 toCam = camTransform.TransformVector(hitInfo.point - transform.position);
 

@@ -23,6 +23,7 @@ namespace JammerTools.BulletSystem
 
         private void Awake()
         {
+            alive = true;
             rb = GetComponent<Rigidbody>();
             timeAlive = Timer.CreateAndStart();
             hitEffects = GetComponents<IHitEffect>();
@@ -36,6 +37,8 @@ namespace JammerTools.BulletSystem
         protected override void OnTriggered(IHittable hittable)
         {
             if (!alive)
+                return;
+            if (hittable.IgnoresHits)
                 return;
 
             foreach (var effect in hitEffects)
