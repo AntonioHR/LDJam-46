@@ -1,4 +1,5 @@
 ﻿using JammerTools.BulletSystem;
+using JammerTools.Common;
 using JammerTools.Movement;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace TurtleGame.Player
     [RequireComponent(typeof(TPSShootSpot))]
     public class PlayerController : MonoBehaviour
     {
+        private const float GroundedFireHackDelay = 0.05f;
         [Header("Refs")]
         [SerializeField]
         private Transform xCamRotate;
@@ -53,6 +55,9 @@ namespace TurtleGame.Player
         private TPSShootSpot shooter;
         private bool wasGrounded;
 
+        private bool firedGroundEv;
+        Timer groundTimer = new Timer();
+
         public bool IsGrounded { get; private set; }
         public string DebugStateName {
             get
@@ -62,6 +67,9 @@ namespace TurtleGame.Player
                 return stateMachine.DebugStateName;
             }
         }
+
+        public float AirborneTime { get => IsGrounded? 0: groundTimer.ElapsedSeconds; }
+        public float GroundedTime { get => !IsGrounded ? 0 : groundTimer.ElapsedSeconds; }
 
 
         #region Initialization
@@ -129,15 +137,26 @@ namespace TurtleGame.Player
                 ))
             {
                 IsGrounded = true;
-                stateMachine.OnBecameGrounded();
+                groundTimer.Restart();
             } else if (wasGrounded &&
                 (!charController.isGrounded && !platformCheck.ObjectsInArea.Any()))
             {
                 IsGrounded = false;
-                stateMachine.OnLeftGround();
+                groundTimer.Restart();
             }
 
             wasGrounded = IsGrounded;
+
+            if(!firedGroundEv)
+            {
+                if(GroundedTime > GroundedFireHackDelay)
+                {
+                    stateMachine.OnBecameGrounded();
+                } else if(AirborneTime > GroundedFireHackDelay)
+                {
+                    stateMachine.OnLeftGround();
+                }
+            }
         }
 
         private void OnJump(UnityEngine.InputSystem.InputAction.CallbackContext obj)
