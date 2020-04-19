@@ -16,10 +16,14 @@ namespace TurtleGame.Player
         public Color DefaultColor;
         public Color OverHeatColor;
 
+        private Color targetColor;
+        private Color colorVel;
+
         private void Start()
         {
             player = GetComponentInParent<PlayerController>();
             img = GetComponent<Image>();
+            img.color = DefaultColor;
         }
 
         private void Update()
@@ -27,15 +31,23 @@ namespace TurtleGame.Player
 
             if(player.IsOnOverheat)
             {
-                img.fillAmount = player.HeatAlpha;
-                img.color = OverHeatColor;
+                img.fillAmount = 1 - player.HeatAlpha;
+                targetColor = OverHeatColor;
             }
             else
             {
-                img.fillAmount = 1- player.HeatAlpha;
-                img.color = DefaultColor;
+                img.fillAmount = 1 - player.HeatAlpha;
+                targetColor = Color.Lerp(DefaultColor, OverHeatColor, player.HeatAlpha);
             }
-            img.fillClockwise = player.IsOnOverheat;
+            //img.fillClockwise = player.IsOnOverheat;
+
+            img.color = targetColor;
+            //var color = img.color;
+            //color.r = Mathf.SmoothDamp(color.r, targetColor.r, ref colorVel.r, .5f);
+            //color.g = Mathf.SmoothDamp(color.g, targetColor.g, ref colorVel.g, .5f);
+            //color.b = Mathf.SmoothDamp(color.b, targetColor.b, ref colorVel.b, .5f);
+
+            //img.color = color;
         }
     }
 }
