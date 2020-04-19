@@ -63,10 +63,12 @@ namespace TurtleGame.Player
         public virtual void OnJumpPressed() { }
         public virtual void OnFireUp()
         {
+            player.playerAnimation.ToggleShooting(true);
             player.defaultShooter.EnableAutoFire();
         }
         public virtual void OnFireDown()
         {
+            player.playerAnimation.ToggleShooting(false);
             player.defaultShooter.DisableAutoFire();
         }
         public virtual void OnSuperFire() { }
