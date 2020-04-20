@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace TurtleGame.Player
@@ -39,7 +40,8 @@ namespace TurtleGame.Player
         [SerializeField]
         private ShootByRate.Settings defaultShotSettings;
 
-
+        public UnityEvent jumpEvent;
+        public UnityEvent hitGroundEvent;
 
         public MoveByInput horizontalMover;
         public MoveByPhysics physicsMover;

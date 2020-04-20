@@ -28,7 +28,7 @@ namespace JammerTools.Common
             instance = obj.AddComponent<T>();
             instance.Init();
             if (instance.KeepBetweenScenes)
-                DontDestroyOnLoad(instance);
+                DontDestroyOnLoad(instance.gameObject);
         }
         protected virtual bool KeepBetweenScenes { get => false; }
 

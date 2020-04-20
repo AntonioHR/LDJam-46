@@ -9,9 +9,12 @@
 
         public override void OnMusicRequest(MusicTrack track)
         {
-            TrackPlayer p = SpawnNewPlayer();
-            p.PlayLooped(track);
-            ExitTo(new SingleTrackPlayingState(p));
+            if (track != null)
+            {
+                TrackPlayer p = SpawnNewPlayer();
+                p.PlayLooped(track);
+                ExitTo(new SingleTrackPlayingState(p));
+            }
         }
 
         public override void OnInitializeMusicManager()

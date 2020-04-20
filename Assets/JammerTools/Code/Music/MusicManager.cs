@@ -17,6 +17,7 @@ namespace JammerTools.Music
 
         private MusicManagerInternal MusicManagerInternal;
 
+
         public Transform TrackPlayersTransform { get => trackPlayersParent; }
 
         protected override bool KeepBetweenScenes => true;
@@ -38,5 +39,9 @@ namespace JammerTools.Music
             MusicManagerInternal.SetMusic(track);
         }
 
+        public void DisableMusic()
+        {
+            MusicManagerInternal.DisableMusic();
+        }
     }
 }
