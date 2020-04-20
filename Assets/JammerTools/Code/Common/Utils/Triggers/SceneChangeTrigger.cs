@@ -16,7 +16,7 @@ namespace JammerTools.Common
         [SerializeField]
         private string sceneName;
         [SerializeField]
-        private string sceneIndex;
+        private int sceneIndex = -1;
 
         protected override void OnTriggered()
         {

@@ -10,25 +10,23 @@ using UnityEngine.UI;
 
 namespace JammerTools.Tweens
 {
-    [RequireComponent(typeof(Text))]
-    public class TextTweenTrigger : MonoTrigger
+    [RequireComponent(typeof(Image))]
+    public class FadeTweenTrigger : MonoTrigger
     {
-        [TextArea]
         [SerializeField]
-        private string message;
+        private float value = 1;
         [SerializeField]
-        private float duration = 1;
+        private float duration = .5f;
         [SerializeField]
-        private bool speedBasedDuration;
+        private bool fromValue = false;
 
 
 
-        private Text text;
         private Tween tween;
-
+        private Image img;
         private void Awake()
         {
-            text = GetComponent<Text>();
+            img = GetComponent<Image>();
         }
 
         protected override void OnTriggered()
@@ -40,9 +38,9 @@ namespace JammerTools.Tweens
 
         private Tween BuildTween()
         {
-            var result = text.DOText(message, duration);
-                //.SetSpeedBased(speedBasedDuration);
-
+            var result = img.DOFade(value, duration);
+            if(fromValue)
+                result.From();
 
             return result;
         }

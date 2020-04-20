@@ -10,7 +10,7 @@ namespace JammerTools.Common
 {
     public abstract class MonoTrigger : MonoBehaviour
     {
-        public enum Target { Nothing, Button }
+        public enum Target { Nothing, Button, CollisionTrigger }
 
         [SerializeField]
         private bool fireOnStart;
@@ -70,5 +70,21 @@ namespace JammerTools.Common
                 OnTriggered();
         }
         protected abstract void OnTriggered();
+
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if(AutoTriggerBy == Target.CollisionTrigger)
+            {
+                Fire();
+            }
+        }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (AutoTriggerBy == Target.CollisionTrigger)
+            {
+                Fire();
+            }
+        }
     }
 }

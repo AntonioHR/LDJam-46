@@ -10,11 +10,14 @@ namespace TurtleGame.WaterSystem
     public class PlantAreaManager : MonoSingleton<PlantAreaManager>
     {
         private List<PlantArea> plantAreas = new List<PlantArea>();
+        private int completed;
 
         public IEnumerable<PlantArea> AllAreas => plantAreas.AsReadOnly();
 
         public event PlantArea.PlantAreaHandler AnyPlantAreaComplete;
-        
+
+        public event Action AllPlantAreasComplete;
+
 
         public void Register(PlantArea plantArea)
         {
@@ -26,6 +29,12 @@ namespace TurtleGame.WaterSystem
         private void OnPlantAreaComplete(PlantArea plantArea)
         {
             AnyPlantAreaComplete?.Invoke(plantArea);
+
+            completed++;
+            if(completed == plantAreas.Count)
+            {
+                AllPlantAreasComplete?.Invoke();
+            }
         }
     }
 }

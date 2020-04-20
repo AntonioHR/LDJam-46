@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MusicManagerSettings
   m_EditorClassIdentifier: 
   DefaultFadeInTime: 0.5
-  trackPlayerPrefab: {fileID: 0}
+  trackPlayerPrefab: {fileID: 360278796245419015, guid: a05f22ab14f47554780729fe26258739,
+    type: 3}
   startingTrack: {fileID: 0}
   startStinger: {fileID: 0}
