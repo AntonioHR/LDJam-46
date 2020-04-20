@@ -21,5 +21,10 @@ namespace JammerTools.Music
         {
             CurrentState.OnInitializeMusicManager();
         }
+
+        public void OnDisableMusicRequest()
+        {
+            CurrentState.OnDisableMusicRequest();
+        }
     }
 }

@@ -36,5 +36,10 @@ namespace JammerTools.Music
         {
             StateMachine.OnMusicRequest(track);
         }
+
+        public void DisableMusic()
+        {
+            StateMachine.OnDisableMusicRequest();
+        }
     }
 }

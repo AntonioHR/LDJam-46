@@ -11,6 +11,10 @@ namespace JammerTools.Music
         public abstract void OnMusicRequest(MusicTrack track);
 
         public virtual void OnInitializeMusicManager() { }
+        public void OnDisableMusicRequest() 
+        {
+            OnMusicRequest(null);
+        }
 
         protected TrackPlayer SpawnNewPlayer()
         {

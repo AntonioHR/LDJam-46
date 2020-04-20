@@ -14,9 +14,15 @@ namespace JammerTools.Music
 
         protected override void Begin()
         {
-            player = SpawnNewPlayer();
-            player.PlayLooped(track);
-            player.FadeIn(Music.DefaultFadeTime, OnFadeInOver);
+            if (track != null)
+            {
+                player = SpawnNewPlayer();
+                player.PlayLooped(track);
+                player.FadeIn(Music.DefaultFadeTime, OnFadeInOver);
+            } else
+            {
+                ExitTo(new NoMusicState());
+            }
         }
 
         private void OnFadeInOver()
