@@ -21,8 +21,7 @@ namespace JammerTools.Tweens
         private void Start()
         {
             var seq = DOTween.Sequence();
-            transform.position -= wobble / 2;
-            var up = transform.DOMove(wobble, period / 4)
+            var up = transform.DOLocalMove(wobble, period /2)
                 .SetEase(easing)
                 .SetRelative()
                 .SetLoops(2, LoopType.Yoyo);
