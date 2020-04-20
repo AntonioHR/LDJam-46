@@ -10,7 +10,7 @@ namespace TurtleGame.WaterSystem
 {
     public class PlantArea : MonoBehaviour
     {
-        public delegate void PlantAreaHandler();
+        public delegate void PlantAreaHandler(PlantArea plantArea);
 
         public event PlantAreaHandler Complete;
 
@@ -24,12 +24,17 @@ namespace TurtleGame.WaterSystem
         private int fullPlants;
         private bool activated;
 
+
+        private void Awake()
+        {
+            PlantAreaManager.Instance.Register(this);
+        }
         private void Start()
         {
             if (autoActivate)
                 Activate();
             else if (prev != null)
-                prev.Complete += Activate;
+                prev.Complete += (_)=>Activate();
             plants = GetComponentsInChildren<Plant>(true);
 
             foreach (var plant in plants)
@@ -61,7 +66,7 @@ namespace TurtleGame.WaterSystem
 
         private void OnComplete()
         {
-            Complete?.Invoke();
+            Complete?.Invoke(this);
         }
     }
 }
