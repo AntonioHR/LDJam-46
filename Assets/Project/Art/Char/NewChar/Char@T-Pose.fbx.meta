@@ -1,14 +1,11 @@
 fileFormatVersion: 2
-guid: 6764f74c476ea424987d1ec9122eb8c6
+guid: 7f1587f964631974aa6821c6d0d1b37c
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
-      74: -8515560403302317629
-    second: Cube.001|Cube.001Action
-  - first:
-      74: -653873359986187448
-    second: Jaw|Cube.001Action
+      74: -203655887218126122
+    second: mixamo.com
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -40,15 +37,15 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.5
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -86,7 +83,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.005
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
