@@ -179,7 +179,7 @@ MonoBehaviour:
   AutoTriggerBy: 0
   mode: 0
   sceneName: Ingame
-  sceneIndex: 
+  sceneIndex: 0
 --- !u!95 &176533045
 Animator:
   serializedVersion: 3
