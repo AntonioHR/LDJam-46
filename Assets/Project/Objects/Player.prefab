@@ -209,7 +209,7 @@ MonoBehaviour:
     defaultJump: 10
     gravity: 20
   cameraSettings:
-    speed: 10
+    speed: 5
     minPitch: -60
     maxPitch: 45
   defaultShotSettings:

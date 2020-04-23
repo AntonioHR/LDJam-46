@@ -4377,7 +4377,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh44948
+  m_Name: pb_Mesh49590
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23578,7 +23578,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-265408
+  m_Name: pb_Mesh47644
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37230,7 +37230,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-263312
+  m_Name: pb_Mesh56932
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -59960,7 +59960,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-263882
+  m_Name: pb_Mesh57806
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -61304,7 +61304,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-264868
+  m_Name: pb_Mesh49984
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -72375,7 +72375,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-262722
+  m_Name: pb_Mesh50530
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -83690,11 +83690,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2693654772859022937, guid: 7977fa78e1b6cab42ac353607cd1aa36,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2693654772859022941, guid: 7977fa78e1b6cab42ac353607cd1aa36,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -83758,7 +83753,7 @@ PrefabInstance:
     - target: {fileID: 6880789069620192712, guid: 7977fa78e1b6cab42ac353607cd1aa36,
         type: 3}
       propertyPath: cameraSettings.speed
-      value: 5
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7977fa78e1b6cab42ac353607cd1aa36, type: 3}
