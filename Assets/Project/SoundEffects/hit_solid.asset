@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: hit_solid
   m_EditorClassIdentifier: 
   id: 
-  playerCount: 5
+  playerCount: 2
   minPlayInterval: 0.1
   volume: 1
   clip: {fileID: 8300000, guid: 98cded1244a3aac479e445731f105b21, type: 3}
