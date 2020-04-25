@@ -209,7 +209,7 @@ MonoBehaviour:
     defaultJump: 10
     gravity: 20
   cameraSettings:
-    speed: 10
+    speed: 5
     minPitch: -60
     maxPitch: 45
   defaultShotSettings:
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 2.5
+    NearClipPlane: 1.75
     FarClipPlane: 5000.001
     Dutch: 0
     LensShift: {x: 0, y: 0}
