@@ -40,8 +40,10 @@ namespace TurtleGame.Player
         [SerializeField]
         private ShootByRate.Settings defaultShotSettings;
 
+        [Header("Events")]
         public UnityEvent jumpEvent;
         public UnityEvent hitGroundEvent;
+        public UnityEvent shotEvent;
 
         public MoveByInput horizontalMover;
         public MoveByPhysics physicsMover;
@@ -91,6 +93,7 @@ namespace TurtleGame.Player
         private void InitShootBehaviours()
         {
             defaultShooter = new ShootByRate(defaultShotSettings, shooter);
+            defaultShooter.Shot += (_)=>shotEvent.Invoke();
         }
 
         private void FindComponentDependencies()
