@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: shot
   m_EditorClassIdentifier: 
   id: 
-  playerCount: 2
+  playerCount: 5
   minPlayInterval: 0.1
-  volume: 1
+  volume: 0.135
   clip: {fileID: 8300000, guid: 93a01b3b7f6f93d49891f27af3998a8a, type: 3}
   output: {fileID: 0}
