@@ -34275,6 +34275,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5530851570711572950, guid: 09e06de8b9f7d4cfeb99d0a15c7a3e9d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b22db47a1aef4c14fbe793f4067edc1f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09e06de8b9f7d4cfeb99d0a15c7a3e9d, type: 3}
 --- !u!43 &1126060905
@@ -51529,7 +51534,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1.75
+  near clip plane: 0.5
   far clip plane: 5000.001
   field of view: 40
   orthographic: 0
