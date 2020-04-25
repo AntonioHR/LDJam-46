@@ -15,8 +15,6 @@ namespace Common.Audio
         private SoundEffect playerPrefab;
         [SerializeField]
         private AudioDatabase audioDatabase;
-        [SerializeField]
-        private AudioMixer mixer;
 
 
         public static AudioManager Instance { get; private set; }

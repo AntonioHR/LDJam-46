@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 284873217879290806}
   - component: {fileID: 7850295877164102403}
   - component: {fileID: 3799029865963049691}
+  - component: {fileID: 6257849351300029843}
+  - component: {fileID: 7916252720504155229}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -157,3 +159,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6257849351300029843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407633255406283823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b26d2731bc31e4f95a9489cc5c5377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7916252720504155229}
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7916252720504155229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407633255406283823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5c6139da0fe0348855a9379b0c6999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireOnStart: 0
+  delay: 0
+  AutoTriggerBy: 0
+  sound: {fileID: 11400000, guid: d3a8ef59b85c9754191acf05e62f1c84, type: 2}
+  useRandom: 0
+  randomSounds: []

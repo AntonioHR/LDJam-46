@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TurtleGame.WaterSystem
 {
@@ -23,6 +24,8 @@ namespace TurtleGame.WaterSystem
 
         public event Action BecameFull;
         public event WaterProgressHandler WaterChanged;
+
+        public UnityEvent BecameFullEvent;
 
 
         [SerializeField]
@@ -80,6 +83,7 @@ namespace TurtleGame.WaterSystem
         private void OnComplete()
         {
             IsFull = true;
+            BecameFullEvent.Invoke();
             BecameFull?.Invoke();
         }
     }
