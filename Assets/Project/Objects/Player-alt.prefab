@@ -210,7 +210,7 @@ MonoBehaviour:
     gravity: 20
   cameraSettings:
     speed: 5
-    minPitch: -60
+    minPitch: -90
     maxPitch: 45
   defaultShotSettings:
     rate: 20
