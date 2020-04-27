@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8595406140592374994}
   - component: {fileID: 1307241205557119404}
   m_Layer: 0
-  m_Name: FootParticles
+  m_Name: FlowerParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53341f15fb21b0242845fa7ee3b67d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireOnStart: 1
+  fireOnStart: 0
   delay: 4
   AutoTriggerBy: 0
 --- !u!1 &5094156847971797468
@@ -93,7 +93,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -162,8 +162,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.8
-      minScalar: 0.3
+      scalar: 1.5
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -215,7 +215,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4814,7 +4814,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af5b6b71abd73744fb7a7a0c2159dfee, type: 2}
+  - {fileID: 2100000, guid: 23f879fd4e6a34858bb746709923ab0a, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

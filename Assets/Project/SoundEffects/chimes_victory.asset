@@ -16,5 +16,5 @@ MonoBehaviour:
   playerCount: 1
   minPlayInterval: 0.1
   volume: 1
-  clip: {fileID: 8300000, guid: 434edceae2303f046bbfcf3e75b7ad46, type: 3}
+  clip: {fileID: 8300000, guid: 40eae8732c1804b939c904c1967b3cbf, type: 3}
   output: {fileID: 0}
